@@ -10,6 +10,7 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
+            List<int> nums = new List<int>();
         }
     }
 }
