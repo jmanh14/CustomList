@@ -8,8 +8,9 @@ namespace CustomListProject
 {
     public class CustomList<T>
     {
-        private int count = 0;
-        private int capacity = 4;
+        private int count;
+        private int capacity;
+        private T[] newArray;
         public int Count
         {
             get
@@ -34,44 +35,63 @@ namespace CustomListProject
         {
             get
             {
-                return this[index];
+                return newArray[index];
             }
             set
             {
-                this[index] = value;
+                newArray[index] = value;
             }
 
         }
 
+        public CustomList()
+        {
+            capacity = 4;
+            newArray = new T[capacity];
+        }
+
         public void Add(T item)
         {
+            newArray[count] = item;
             //Increment Count
             count++;
-            //Item needs to land at next available index
-            T[] newArray = new T[capacity];
-
+            //Item needs to land at next available index           
             //Check to make sure it persists
-            
             //If count == maxCapacity, we need to increase capacity and copy
-            if(count == capacity)
+            if (count == capacity)
             {
                 capacity *= 2;
-                T[] tempArray = new T[capacity];
-                tempArray = newArray;
-                newArray = tempArray;
+                T[] temporaryArray = new T[capacity];
+                for (int i = 0; i < count; i++)
+                {
+                    temporaryArray[i] = newArray[i];
+                }
+                newArray = temporaryArray;
             }
 
         }
 
         public void Remove(T item)
         {
+            for (int i = 0; i < count; i++)
+            {
+                if (newArray[i].Equals(item))
+                {
+                    for (int j = i; j < count; j++)
+                    {
+                        newArray[j] = newArray[j + 1];
+                    }
+                    count--;
+                    return;
+                }
+
+            }
             //Decrement Count
 
             //Item needs to shift to next index
 
             //Check to make sure it persists
 
-            //If count != maxCapacity, we need to decrease capacity and copy
         }
     }
 }

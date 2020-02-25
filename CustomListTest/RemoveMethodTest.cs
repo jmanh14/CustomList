@@ -64,7 +64,7 @@ namespace CustomListTest
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
-            int expected = 4;
+            int expected = 8;
             int firstValue = 7;
             int secondValue = 11;
             int thirdValue = 24;
@@ -102,5 +102,25 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected, myList.Capacity);
         }
+        [TestMethod]
+        public void Remove_OneValue_KeepDuplicate()
+        {
+            //Arramge
+            CustomList<int> myList = new CustomList<int>();
+            int expected = 7;
+
+
+            //Act
+            myList.Add(3);
+            myList.Add(7);
+            myList.Add(5);
+            myList.Add(7);
+            myList.Remove(7);
+
+
+            //Assert
+            Assert.AreEqual(expected, myList[2]);
+        }
     }
+
 }

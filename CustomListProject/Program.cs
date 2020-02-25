@@ -10,7 +10,12 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
-            List<int> nums = new List<int>();
+            //List<int> nums = new List<int>();
+            CustomList<int> nums = new CustomList<int>();
+            nums.Add(5);
+            nums.Add(7);
+            //nums.Remove(5);
+            Console.WriteLine(nums[0]);
         }
     }
 }

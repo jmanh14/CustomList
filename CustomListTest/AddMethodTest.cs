@@ -100,7 +100,29 @@ namespace CustomListTest
             Assert.AreEqual(expected, myList.Capacity);
 
         }
+        [TestMethod]
+        public void Add_FiveValues_GetIndexOfLastValue()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int expected = 44;
+            int firstValue = 7;
+            int secondValue = 11;
+            int thirdValue = 24;
+            int fourthValue = 32;
+            int fifthValue = 44;
 
+            //Act
+            myList.Add(firstValue);
+            myList.Add(secondValue);
+            myList.Add(thirdValue);
+            myList.Add(fourthValue);
+            myList.Add(fifthValue);
+
+            //Assert
+            Assert.AreEqual(expected, myList[4]);
+
+        }
         [TestMethod]
         public void Add_OneValue_GetCapacity()
         {
