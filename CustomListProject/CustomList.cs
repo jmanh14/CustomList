@@ -27,11 +27,11 @@ namespace CustomListProject
             }
             set
             {
-                capacity = value; 
+                capacity = value;
             }
         }
 
-        public T this[int index] 
+        public T this[int index]
         {
             get
             {
@@ -93,5 +93,22 @@ namespace CustomListProject
             //Check to make sure it persists
 
         }
+
+        public override string ToString()
+        {
+            string newString = "";
+            for (int i = 0; i < count; i++)
+            {
+                newString += newArray[i].ToString();
+            }
+            return newString;
+        }
+        public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> result;
+            result = listOne + listTwo;
+            return result;
+        }
+
     }
 }
