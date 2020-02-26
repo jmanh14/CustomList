@@ -105,9 +105,9 @@ namespace CustomListProject
         }
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            CustomList<T> result;
-            result = listOne + listTwo;
-            return result;
+            CustomList<T> resultList = new CustomList<T>();
+            resultList = listOne + listTwo;
+            return resultList;
         }
 
     }
