@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T> : IEnumerable
+    public class CustomList<T> : IEnumerable, IComparer
     {
         private int count;
         private int capacity;
@@ -56,6 +56,10 @@ namespace CustomListProject
             {
                 yield return newArray[index];
             }
+        }
+        public int Compare(object x, object y)
+        {
+            return ((new CaseInsensitiveComparer()).Compare(x,y));
         }
 
         public void Add(T item)
@@ -183,20 +187,24 @@ namespace CustomListProject
             return resultList;
          
         }
-        public void Sort(CustomList<int> listOne)
+        public void Sort(CustomList<T> listOne)
         {
+            //Bubble sort
+            //Swaps positions if pos1 is greater than pos2
             for (int i = 0; i <= listOne.count - 2; i++)
             { 
                 for (int j = 0; j <= listOne.count - 2; j++)
                 {
-                    if (listOne[j] > listOne[j + 1])
+                    if (Compare(listOne[j], listOne[j+1]) > 0)
                     {
-                        int temporary = listOne[j];
+                        T temporary = listOne[j];
                         listOne[j] = listOne[j + 1];
                         listOne[j + 1] = temporary;
                     }
                 }            
             }
-        }      
+        }
+
+      
     }
 }

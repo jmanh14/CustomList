@@ -45,5 +45,57 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected.ToString(), numberList.ToString());
         }
+        [TestMethod]
+        public void Sort_StringList_GetResult()
+        {
+            //Arrange
+            CustomList<string> stringList = new CustomList<string>() { "cat", "dog", "rabbit", "bear"};
+            CustomList<string> expected = new CustomList<string>() { "bear", "cat", "dog", "rabbit" };
+
+
+            //Act
+            stringList.Sort(stringList);
+            //Assert
+            Assert.AreEqual(expected.ToString(), stringList.ToString());
+        }
+        [TestMethod]
+        public void Sort_StringList_GetResultTwo()
+        {
+            //Arrange
+            CustomList<string> stringList = new CustomList<string>() { "A", "B", "a", "b" };
+            CustomList<string> expected = new CustomList<string>() { "A","a","B","b" };
+
+
+            //Act
+            stringList.Sort(stringList);
+            //Assert
+            Assert.AreEqual(expected.ToString(), stringList.ToString());
+        }
+        [TestMethod]
+        public void Sort_CharList_GetResult()
+        {
+            //Arrange
+            CustomList<char> charList = new CustomList<char>() { 'A', 'Z', 'b' ,'e' };
+            CustomList<char> expected = new CustomList<char>() { 'A', 'Z', 'b' ,'e'};
+
+
+            //Act
+            charList.Sort(charList);
+            //Assert
+            Assert.AreEqual(expected.ToString(), charList.ToString());
+        }
+        [TestMethod]
+        public void Sort_CharList_GetResultTwo()
+        {
+            //Arrange
+            CustomList<char> charList = new CustomList<char>() { 'A', 'Z', 'b', 'e', 'a', 'z' };
+            CustomList<char> expected = new CustomList<char>() { 'A', 'Z', 'a', 'b', 'e', 'z' };
+
+
+            //Act
+            charList.Sort(charList);
+            //Assert
+            Assert.AreEqual(expected.ToString(), charList.ToString());
+        }
     }
 }
