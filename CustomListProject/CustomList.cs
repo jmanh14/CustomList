@@ -50,6 +50,13 @@ namespace CustomListProject
             capacity = 4;
             newArray = new T[capacity];
         }
+        public IEnumerator GetEnumerator()
+        {
+            for (int index = 0; index < newArray.Length; index++)
+            {
+                yield return newArray[index];
+            }
+        }
 
         public void Add(T item)
         {
@@ -176,13 +183,20 @@ namespace CustomListProject
             return resultList;
          
         }
-
-        public IEnumerator GetEnumerator()
+        public void Sort(CustomList<int> listOne)
         {
-            for (int index = 0; index < newArray.Length; index++)
-            {
-                yield return newArray[index];
+            for (int i = 0; i <= listOne.count - 2; i++)
+            { 
+                for (int j = 0; j <= listOne.count - 2; j++)
+                {
+                    if (listOne[j] > listOne[j + 1])
+                    {
+                        int temporary = listOne[j];
+                        listOne[j] = listOne[j + 1];
+                        listOne[j + 1] = temporary;
+                    }
+                }            
             }
-        }
+        }      
     }
 }
