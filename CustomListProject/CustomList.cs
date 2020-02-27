@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         private int count;
         private int capacity;
@@ -141,6 +142,47 @@ namespace CustomListProject
             return resultList;
         }
 
+        public CustomList<T> Zip(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> resultList = new CustomList<T>();
+            //if(listOne.count != listTwo.count)
+            //{
+            //    for (int i = 0; i < listOne.count; i++)
+            //    {
+            //        resultList.Add(listOne[i]);
+            //        if(i != listOne.count - 1 )
+            //        {
+            //            resultList.Add(listTwo[i]);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < listOne.count; i++)
+            //    {
+            //        resultList.Add(listOne[i]);
+            //        resultList.Add(listTwo[i]);
+            //    }
+            //}
 
+            for (int i = 0; i < (listOne.count >= listTwo.count ? listOne.count : listTwo.count); i++)
+            {
+                if (listOne.count > i)
+                    resultList.Add(listOne[i]);
+
+                if (listTwo.count > i)
+                    resultList.Add(listTwo[i]);
+            }
+            return resultList;
+         
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int index = 0; index < newArray.Length; index++)
+            {
+                yield return newArray[index];
+            }
+        }
     }
 }
