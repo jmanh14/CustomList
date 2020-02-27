@@ -106,9 +106,41 @@ namespace CustomListProject
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> resultList = new CustomList<T>();
-            resultList = listOne + listTwo;
+            for(int i = 0; i < listOne.count; i++)
+            {
+                resultList.Add(listOne[i]);
+            }
+            for(int i = 0; i < listTwo.count; i++)
+            {
+                resultList.Add(listTwo[i]);
+            }
             return resultList;
         }
+
+        public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> resultList = new CustomList<T>();
+            //resultList = listOne;
+            for (int i = 0; i < listOne.count; i++)
+            {
+                bool isInList = false;
+                for (int j = 0; j < listTwo.count; j++)
+                {
+                    
+                    if (listOne[i].Equals(listTwo[j]))
+                    { 
+                        isInList = true;
+                    }
+                    if ((j == listTwo.count - 1) && isInList != true)
+                    {
+                        resultList.Add(listOne[i]);
+                    }              
+                }
+              
+            }
+            return resultList;
+        }
+
 
     }
 }

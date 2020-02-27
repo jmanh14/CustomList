@@ -54,6 +54,8 @@
     <Compile Include="RemoveMethodTest.cs" />
     <Compile Include="ToStringTest.cs" />
     <Compile Include="AddOperatorTest.cs" />
+    <Compile Include="SubtractOperatorTest.cs" />
+    <Compile Include="ZipperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

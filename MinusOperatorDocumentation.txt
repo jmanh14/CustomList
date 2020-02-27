@@ -1,0 +1,30 @@
+- Operator Overload
+
+Removes any common occurences from 2 different lists.
+
+Syntax
+public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo);
+
+Parameters
+listOne CustomList<T>:
+The list in which its items are removed.
+
+listTwo CustomList<T>:
+The list in which its items are compared to the first list. 
+
+Returns
+CustomList<T>
+New list from listOne with removed items.
+
+Example
+The following example demonstrates how to subtract two seperate lists
+
+CustomList<int> numberListOne = new CustomList<int>(){1,2,3,4};
+CustomList<int> numberListTwo = new CustomList<int>(){9,8,7,3};
+CustomList<int> resultList = new CustomList<int>();
+resultList = numberListOne - numberListTwo;
+
+Console.WriteLine(resultList.ToString());
+
+//Output
+124
